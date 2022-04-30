@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-    padding: 15px 0;
+    padding: 15px 0px;
     background-color: #ffffff;
 }
 
@@ -32,8 +32,9 @@ body {
     font: normal normal bold 20px/25px Montserrat;
     font-family: "Montserrat", sans-serif;
     letter-spacing: 0px;
-    color: #82a70c;
+    color: #8aac1c;
     text-transform: capitalize;
+    padding-left: 5px;
 }
 
 .emp-payroll {
@@ -192,8 +193,8 @@ select {
         display: block;
     }
 
-    .text-error {
-        padding-right: 200px;
+    .text-error, .date-error {
+        margin-left: 0px;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -229,7 +230,13 @@ select {
     .profile-radio-content{
         flex-flow: wrap;
     }
-    .text-error {
-        padding-right: 600px;
+}
+
+@media only screen and (max-width: 400px){
+    .submit-reset {
+        display: block;
+    }
+    .resetButton {
+        margin-top: 20px;
     }
 }
