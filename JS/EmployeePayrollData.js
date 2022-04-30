@@ -1,70 +1,70 @@
 class EmployeePayrollData {
 
-    get id(){
-        return this._id;
-    }
-
-    set id(id){
-        this._id = id;
-    }
-
-    get name(){
+    get name() {
         return this._name;
     }
 
-    set name(name){
-        let nameRegex = RegExp('^[A-Z]{1}[a-zA-z\\s]{2,}$');
-        if (nameRegex.test(name))
+    set name(name) {
+        let nameRegex = /^[A-Z][a-z]{2,}$/;
+        if (nameRegex.test(name)) {
             this._name = name;
-        else throw 'Name is Incorrect'
+        } 
+        else {
+            throw "Invalid name";
+        }
     }
 
-    get profilePic(){
-        return this._profilePic;
+    get picture() {
+        return this._picture;
     }
 
-    set profilePic(profilePic){
-        this._profilePic = profilePic;
+    set picture(picture) {
+        this._picture = picture;
     }
 
-    get gender(){
-        return this._gender;
-    }
-
-    set gender(gender){
-        this._gender = gender;
-    }
-
-    get department(){
-        return this._department;
-    }
-
-    set department(department){
-        this._department = department;
-    }
-
-    get salary(){
+    get salary() {
         return this._salary;
     }
-
-    set salary(salary){
+    set salary(salary) {
         this._salary = salary;
     }
 
-    get notes(){
-        return this._notes;
+    get gender() {
+        return this._gender;
     }
 
-    set notes(notes){
-        this._notes = notes;
+    set gender(gender) {
+        this._gender = gender;
     }
 
+    get department() {
+        return this._department;
+    }
 
+    set department(department) {
+        this._department = department;
+    }
+
+    get startDate() {
+        return this._startDate;
+    }
+
+    set startDate(startDate) {
+        if (startDate <= new Date()) {
+            this._startDate = startDate;
+        } else {
+            throw "Invalid date";
+        }
+    }
+
+    get note() {
+        return this._note;
+    }
+
+    set note(note) {
+        this._note = note;
+    }
     toString() {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const empDate = !this.startDate ? "undefined" : this.startDate.toLocaleDateString("en-US", options);
-        return "id=" + this.id + ", name='" + this.name + "gender=" + this.gender + ", profilePic=" + this.profilePic + ", department=" + this.department + ", salary=" + this.salary + ", " + ", startDate=" + empDate + ", notes=" + this.notes;
+        return "\nName: " + this.name + "\nPicture: " + this.picture + "\nGender: " + this.gender + "\nDepartment: " + this.department + "\nSalary: " + this.salary + "\nStart date: " + this.startDate + "\nNote: " + this.note;
     }
-
-
 }
